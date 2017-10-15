@@ -34,9 +34,9 @@ namespace DataStoreNamespace.Modules
             Friends = GetValue<string[]>(other, "Friends", Friends);
         }
 
-        public override AbstractDataModule MergeState(AbstractDataModule baseSate, Dictionary<string, object> other)
+        public override AbstractDataModule MergeState(Dictionary<string, object> other)
         {
-			var newIns = new DataModuleProfileInfo((DataModuleProfileInfo)baseSate, other);
+			var newIns = new DataModuleProfileInfo(this, other);
 			if(!IsStateDifference(this, newIns))
 				return this;
             return newIns;
@@ -50,7 +50,9 @@ namespace DataStoreNamespace.Modules
 
 			return a.FacebookID != b.FacebookID 
 					|| a.AvatarURL != b.AvatarURL
-					|| a.Credential != b.Credential;
+					|| a.Credential != b.Credential
+                    || a.AvatarIMG != b.AvatarIMG
+                    || a.Friends != b.Friends;
         }
     }
 }

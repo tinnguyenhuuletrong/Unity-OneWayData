@@ -35,9 +35,9 @@ namespace DataStoreNamespace.Modules
             CurrentPopupName = GetValue<string>(other, "CurrentPopupName", CurrentPopupName);
         }
 
-        public override AbstractDataModule MergeState(AbstractDataModule baseSate, Dictionary<string, object> other)
+        public override AbstractDataModule MergeState(Dictionary<string, object> other)
         {
-            var newIns = new DataModuleUI((DataModuleUI)baseSate, other);
+            var newIns = new DataModuleUI(this, other);
 			if(!IsStateDifference(this, newIns))
 				return this;
             return newIns;

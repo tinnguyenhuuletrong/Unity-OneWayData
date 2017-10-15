@@ -42,7 +42,7 @@ namespace DataStoreNamespace
             if (nextVal == null)
                 nextVal = mModules[modules];
 
-            mNextVal[modules] = nextVal.MergeState(nextVal, newVal);
+            mNextVal[modules] = nextVal.MergeState(newVal);
         }
 
         public void LateUpdate()

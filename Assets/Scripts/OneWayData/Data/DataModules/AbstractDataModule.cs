@@ -22,7 +22,7 @@ namespace DataStoreNamespace.Modules
 			return true;
 		}
 
-		public abstract AbstractDataModule MergeState(AbstractDataModule baseSate, Dictionary<string, object> other);
+		public abstract AbstractDataModule MergeState(Dictionary<string, object> other);
 	}	
 }
 
